@@ -62,7 +62,7 @@ const UpdateTodoForm = ({ todo }: IProps) => {
       variant: "default",
       duration: 1500,
     });
-
+   
     setOpen(false);
   };
 
@@ -139,20 +139,7 @@ const UpdateTodoForm = ({ todo }: IProps) => {
                   )}
                 />
 
-                <Button
-                  type="submit"
-                  onClick={() => {
-                    useEffect(() => {
-                      form.reset({
-                        title: "",
-                        body: "",
-                        completed: false,
-                      });
-                    }, []);
-                  }}
-                >
-                  Update todo
-                </Button>
+                <Button type="submit">Update todo</Button>
               </form>
             </Form>
           </div>

@@ -54,7 +54,11 @@ const AddTodoForm = ({ userId }: { userId: string | null }) => {
       variant: "primary",
       duration: 1500,
     });
-
+    form.reset({
+      title : "" ,
+      body:"" , 
+      completed :false
+    })
   
     setOpen(false);
   };
