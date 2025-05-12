@@ -85,7 +85,7 @@ const AddTodoForm = ({ userId }: { userId: string | null }) => {
                     <FormItem>
                       <FormLabel>Title</FormLabel>
                       <FormControl>
-                        <Input placeholder="Todo Title" {...field} />
+                        <Input placeholder="Todo Title"  />
                       </FormControl>
                       <FormDescription>
                         This is your public display todo.
