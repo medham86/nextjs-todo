@@ -27,7 +27,7 @@ import { useForm } from "react-hook-form";
 import { Checkbox } from "./ui/checkbox";
 import { Pen } from "lucide-react";
 import { ITodo } from "@/interfaces";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface IProps {
   todo: ITodo;
@@ -50,15 +50,22 @@ const UpdateTodoForm = ({ todo }: IProps) => {
   });
 
   const onSubmit = (data: todoFormValues) => {
-    updateTodoAction({id:todo.id , title:data.title,body:data.body as string,completed:data.completed});
+    updateTodoAction({
+      id: todo.id,
+      title: data.title,
+      body: data.body as string,
+      completed: data.completed,
+    });
     toast({
       title: "Update Todo",
       description: "Your Todo has updated successfully",
       variant: "default",
       duration: 1500,
     });
+
     setOpen(false);
   };
+
   return (
     <>
       <Dialog open={open} onOpenChange={setOpen}>
@@ -85,7 +92,7 @@ const UpdateTodoForm = ({ todo }: IProps) => {
                     <FormItem>
                       <FormLabel>Title</FormLabel>
                       <FormControl>
-                        <Input placeholder="Todo Title"  />
+                        <Input placeholder="Todo Title" {...field} />
                       </FormControl>
                       <FormDescription>
                         This is your public display todo.
@@ -132,7 +139,20 @@ const UpdateTodoForm = ({ todo }: IProps) => {
                   )}
                 />
 
-                <Button type="submit">Update todo</Button>
+                <Button
+                  type="submit"
+                  onClick={() => {
+                    useEffect(() => {
+                      form.reset({
+                        title: "",
+                        body: "",
+                        completed: false,
+                      });
+                    }, []);
+                  }}
+                >
+                  Update todo
+                </Button>
               </form>
             </Form>
           </div>
