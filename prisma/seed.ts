@@ -18,16 +18,16 @@ async function main() {
 //   })
 // })
 
-await prisma.todo.createMany({
-  data: Array.from({ length: 25 }, () => {
-    return {
-      title: faker.lorem.words({min:2 , max:5}),
-      body: faker.lorem.words({min:5 , max : 20}),
-      completed: faker.datatype.boolean(),
+// await prisma.todo.createMany({
+//   data: Array.from({ length: 25 }, () => {
+//     return {
+//       title: faker.lorem.words({min:2 , max:5}),
+//       body: faker.lorem.words({min:5 , max : 20}),
+//       completed: faker.datatype.boolean(),
      
-    }
-  })
-})
+//     }
+//   })
+// })
 
 
 
